@@ -37,7 +37,7 @@ export default function OrderPage() {
   };
 
   let total = cart.map(item => item.price * item.quantity)
-  .reduce((acc, value) => acc + value, 0).toFixed(2);
+    .reduce((acc, value) => acc + value, 0).toFixed(2);
 
   return (
     <>
@@ -45,59 +45,59 @@ export default function OrderPage() {
         <h2>ORDER ONLINE</h2>
         {
           submitted ?
-          <div className="submitted">
-            <p>Order has been placed!</p>
-            <Link to="/" rel="href" aria-label="Go back to Home page">Go Back</Link>
-          </div>
-          :
-          <div className="order-content">
-            <div className="search">
-              <input
-                placeholder="Search menu...e.g pasta"
-                value={search}
-                onChange={e => setSearch(e.target.value)}/>
+            <div className="submitted">
+              <p>Order has been placed!</p>
+              <Link to="/" rel="href" aria-label="Go back to Home page">Go Back</Link>
             </div>
-            <div className="order-items">
-              {
-                handleSearch().map(item => {
-                  return (
-                    <div className="order-item" key={item.id}>
-                      <img src={require(`../../assets/images/${item.img}`)} alt={item.dishUpper} />
-                      <p>{item.dishLower}</p>
-                      <p>
-                        <span>${item.price}</span>
-                        <button aria-label="Remove from cart" onClick={() => handleRemoveFromCart(item.id)}>{removeCartSvg}</button>
-                        <button aria-label="Add to cart" onClick={() => handleAddToCart(item)}>{addCartSvg}</button>
-                      </p>
-                    </div>
-                  )
-                })
-              }
+            :
+            <div className="order-content">
+              <div className="search">
+                <input
+                  placeholder="Search menu...e.g pasta"
+                  value={search}
+                  onChange={e => setSearch(e.target.value)} />
+              </div>
+              <div className="order-items">
+                {
+                  handleSearch().map(item => {
+                    return (
+                      <div className="order-item" key={item.id}>
+                        <img src={require(`../../assets/images/${item.img}`)} alt={item.dishUpper} />
+                        <p>{item.dishLower}</p>
+                        <p>
+                          <span>${item.price}</span>
+                          <button aria-label="Remove from cart" onClick={() => handleRemoveFromCart(item.id)}>{removeCartSvg}</button>
+                          <button aria-label="Add to cart" onClick={() => handleAddToCart(item)}>{addCartSvg}</button>
+                        </p>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+              <div className="cart-items">
+                {
+                  cart.length === 0 ?
+                    <p className="cart-empty">Cart is empty!</p>
+                    :
+                    <>
+                      {
+                        cart.map(item => {
+                          return (
+                            <div className="cart-item" key={item.id}>
+                              <p>
+                                <span>- {item.dishLower}</span>
+                                <span><b>x{item.quantity}</b></span>
+                              </p>
+                            </div>
+                          )
+                        })
+                      }
+                      <p className="total">Total: ${total}</p>
+                    </>
+                }
+              </div>
+              <OrderForm onSubmit={onSubmit} />
             </div>
-            <div className="cart-items">
-              {
-                cart.length === 0 ?
-                <p className="cart-empty">Cart is empty!</p>
-                :
-                <>
-                  {
-                    cart.map(item => {
-                      return (
-                        <div className="cart-item" key={item.id}>
-                          <p>
-                            <span>- {item.dishLower}</span>
-                            <span><b>x{item.quantity}</b></span>
-                          </p>
-                        </div>
-                      )
-                    })
-                  }
-                  <p className="total">Total: ${total}</p>
-                </>
-              }
-            </div>
-            <OrderForm onSubmit={onSubmit} />
-          </div>
         }
       </div>
       <small className="rights">© All rights reserved to Little Lemon</small>

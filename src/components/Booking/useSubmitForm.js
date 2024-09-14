@@ -6,21 +6,23 @@ const useSubmitForm = () => {
   const [bookingForm, setBookingForm] = useState(null);
   const navigate = useNavigate();
 
-  function submitForm(e, {formData}) {
+  function submitForm(e, { formData }) {
     e.preventDefault();
     if (submitAPI(formData)) {
-      setBookingForm({...formData})
+      setBookingForm({ ...formData })
     }
   };
 
-  const { date, time, reserveNumber } = {...bookingForm};
+  const { date, time, reserveNumber } = { ...bookingForm };
 
   useEffect(() => {
     if (bookingForm) {
-      localStorage.setItem('Little_Lemon-Table', JSON.stringify({'date': date, 'time': time, 'reservation': reserveNumber}));
-      navigate('/confirmation', {state: {
-        ...bookingForm
-      }});
+      localStorage.setItem('Little_Lemon-Table', JSON.stringify({ 'date': date, 'time': time, 'reservation': reserveNumber }));
+      navigate('/confirmation', {
+        state: {
+          ...bookingForm
+        }
+      });
     }
   });
 

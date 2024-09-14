@@ -19,7 +19,7 @@ export default function Header() {
           <span
             className="hamburger-content-exit"
             onClick={() => setOpen(false)}
-            >
+          >
             {exitSvg}
           </span>
           <nav>
@@ -39,7 +39,7 @@ export default function Header() {
           onClick={toggleHamburger}>{hamburgerSvg}
         </span>
         <Link to="/" aria-label="Go to Home Page">
-          <img src={require('../../assets/images/logo.png')} alt="Little Lemon Logo"/>
+          <img src={require('../../assets/images/logo.png')} alt="Little Lemon Logo" />
         </Link>
         <span className="nav">
           <Nav />

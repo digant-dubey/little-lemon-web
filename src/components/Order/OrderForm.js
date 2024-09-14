@@ -12,26 +12,26 @@ export default function OrderForm({ onSubmit }) {
 
   function handlePhoneBlur() {
     if (validatePhone(phone.val)) {
-      setPhone({...phone, error: false})
+      setPhone({ ...phone, error: false })
     } else {
-      setPhone({...phone, error: true})
+      setPhone({ ...phone, error: true })
     }
   };
 
   function handleEmailBlur() {
     if (validateEmail(email.val)) {
-      setEmail({...email, error: false})
+      setEmail({ ...email, error: false })
     } else {
-      setEmail({...email, error: true})
+      setEmail({ ...email, error: true })
     }
   };
 
   function handleNameBlur() {
     const textRegex = /[a-zA-Z]{3,15}$/;
     if (textRegex.test(name.val)) {
-      setName({...name, error: false})
+      setName({ ...name, error: false })
     } else {
-      setName({...name, error: true})
+      setName({ ...name, error: true })
     }
   };
 
@@ -45,7 +45,7 @@ export default function OrderForm({ onSubmit }) {
             name="name"
             maxLength="15"
             value={name.val}
-            onChange={e => setName({...name, val: e.target.value})}
+            onChange={e => setName({ ...name, val: e.target.value })}
             onBlur={handleNameBlur}
             required
           />
@@ -57,12 +57,12 @@ export default function OrderForm({ onSubmit }) {
             type='tel'
             name="phone"
             value={phone.val}
-            onChange={e => setPhone({...email, val: e.target.value})}
+            onChange={e => setPhone({ ...email, val: e.target.value })}
             onBlur={handlePhoneBlur}
             minLength="11" maxLength="11"
-            required/>
+            required />
           <label aria-label="phone" htmlFor="phone">Phone Number e.g +0123456789</label>
-          {phone.error && 
+          {phone.error &&
             <>
               <small>Phone number should start with + or 0.</small>
               <small>Min & Max 10 numbers.</small>
@@ -74,7 +74,7 @@ export default function OrderForm({ onSubmit }) {
             type='email'
             name="email"
             value={email.val}
-            onChange={e => setEmail({...email, val: e.target.value})}
+            onChange={e => setEmail({ ...email, val: e.target.value })}
             onBlur={handleEmailBlur}
             required
           />
@@ -86,11 +86,11 @@ export default function OrderForm({ onSubmit }) {
             name="address"
             value={address}
             onChange={e => setAddress(e.target.value)}
-            required/>
+            required />
           <label>Delivery Address</label>
         </div>
         <button aria-label="Submit Order" disabled={cart.length === 0} type="submit">CHECKOUT</button>
       </form>
-    </div>  
+    </div>
   )
 };

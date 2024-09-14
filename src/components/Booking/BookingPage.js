@@ -38,7 +38,7 @@ export default function BookingPage() {
             dispatch,
           }}
         />
-        <img className="map" src={require('../../assets/images/map.JPG')} alt="Little Lemon location"/>
+        <img className="map" src={require('../../assets/images/map.JPG')} alt="Little Lemon location" />
       </div>
       <small className="rights">© All rights reserved to Little Lemon</small>
     </>

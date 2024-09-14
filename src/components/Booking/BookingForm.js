@@ -22,40 +22,41 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
 
   function handleEmailBlur() {
     if (validateEmail(email.val)) {
-      setEmail({...email, error: false})
+      setEmail({ ...email, error: false })
     } else {
-      setEmail({...email, error: true})
+      setEmail({ ...email, error: true })
     }
   };
 
   function handlePhoneBlur() {
     if (validatePhone(phone.val)) {
-      setPhone({...phone, error: false})
+      setPhone({ ...phone, error: false })
     } else {
-      setPhone({...phone, error: true})
+      setPhone({ ...phone, error: true })
     }
   };
 
   function handleFirstNameBlur() {
     const textRegex = /[a-zA-Z]{3,15}$/;
     if (textRegex.test(firstName.val)) {
-      setFirstName({...firstName, error: false})
+      setFirstName({ ...firstName, error: false })
     } else {
-      setFirstName({...firstName, error: true})
+      setFirstName({ ...firstName, error: true })
     }
   };
 
   function handleLastNameBlur() {
     const textRegex = /[a-zA-Z]{3,15}/;
     if (textRegex.test(lastName.val)) {
-      setLastName({...lastName, error: false})
+      setLastName({ ...lastName, error: false })
     } else {
-      setLastName({...lastName, error: true})
+      setLastName({ ...lastName, error: true })
     }
   };
 
   return (
-    <form onSubmit={e => submitForm(e, {formData: {
+    <form onSubmit={e => submitForm(e, {
+      formData: {
         firstName: firstName.val,
         lastName: lastName.val,
         email: email.val,
@@ -66,7 +67,7 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
         guests: guests,
         reserveNumber: Math.floor(Math.random() * 1000),
       }
-      })}>
+    })}>
       <h2>RESERVATION ONLINE</h2>
       <p>Choose date and time:</p>
       <div className='date-time'>
@@ -79,7 +80,7 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
             handleDateReducer();
           }}
           min="2023-01-15" max="2023-02-28"
-          required/>
+          required />
         <select name="time" value={time} onChange={e => setTime(e.target.value)} required>
           <option label="Select time" value="">Select time</option>
           {
@@ -111,7 +112,7 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
           name="firstName"
           maxLength="15"
           value={firstName.val}
-          onChange={e => setFirstName({...firstName, val: e.target.value})}
+          onChange={e => setFirstName({ ...firstName, val: e.target.value })}
           onBlur={handleFirstNameBlur}
           required
         />
@@ -124,7 +125,7 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
           name="lastName"
           value={lastName.val}
           maxLength="15"
-          onChange={e => setLastName({...lastName, val: e.target.value})}
+          onChange={e => setLastName({ ...lastName, val: e.target.value })}
           onBlur={handleLastNameBlur}
           required
         />
@@ -136,7 +137,7 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
           type='email'
           name="email"
           value={email.val}
-          onChange={e => setEmail({...email, val: e.target.value})}
+          onChange={e => setEmail({ ...email, val: e.target.value })}
           onBlur={handleEmailBlur}
           required
         />
@@ -148,13 +149,13 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
           type='tel'
           name="phone"
           value={phone.val}
-          onChange={e => setPhone({...email, val: e.target.value})}
+          onChange={e => setPhone({ ...email, val: e.target.value })}
           onBlur={handlePhoneBlur}
           minLength="11" maxLength="11"
           required
         />
         <label aria-label="phone" htmlFor="phone">Phone Number e.g +0123456789</label>
-        {phone.error && 
+        {phone.error &&
           <>
             <small>Phone number should start with + or 0.</small>
             <small>Min & Max 10 numbers.</small>
@@ -163,7 +164,7 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
       </div>
       <select
         placeholder='Select an occasion'
-        style={{width: '280px'}}
+        style={{ width: '280px' }}
         name="occasion"
         value={occasion}
         onChange={e => setOccasion(e.target.value)}>

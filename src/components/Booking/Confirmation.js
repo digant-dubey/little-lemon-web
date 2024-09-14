@@ -7,9 +7,9 @@ export default function Confirmation() {
 
   const occasionSvg = (
     occasion === 'Birthday' ? birthdaySvg :
-    occasion === 'Anniversary' ? anniversarySvg :
-    occasion === 'Business' ? businessSvg :
-    generalSvg
+      occasion === 'Anniversary' ? anniversarySvg :
+        occasion === 'Business' ? businessSvg :
+          generalSvg
   );
 
   function upperCase(word) {
@@ -43,7 +43,7 @@ export default function Confirmation() {
           </ul>
         </div>
         <p>Order details has been sent to: <b><i>{email}</i></b></p>
-        <br/>
+        <br />
         <Link to="/book" rel="href" aria-label="Go back to Booking page">Go Back</Link>
       </div>
     </>

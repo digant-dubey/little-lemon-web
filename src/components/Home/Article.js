@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Article() {
   return (
     <div className="article">
-      <img src={require('../../assets/images/main.JPG')} alt='Menu'/>
+      <img src={require('../../assets/images/main.JPG')} alt='Menu' />
       <div className="article-content">
         <h2>Little Lemon</h2>
         <h3>Chicago</h3>

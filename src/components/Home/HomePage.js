@@ -8,7 +8,7 @@ import About from './About';
 import { useEffect } from "react";
 
 export default function HomePage() {
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

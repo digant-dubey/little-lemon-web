@@ -9,13 +9,13 @@ const AppReducer = (state, action) => {
         return {
           ...state,
           cart: state.cart.map(item =>
-            item.id === action.payload.id ? {...item, quantity: item.quantity + 1} : item
+            item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item
           )
         };
       } else {
         return {
           ...state,
-          cart: [...state.cart, {...action.payload, quantity: 1}]
+          cart: [...state.cart, { ...action.payload, quantity: 1 }]
         }
       };
     case 'REMOVE_FROM_CART':
