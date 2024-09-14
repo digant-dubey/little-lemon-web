@@ -79,7 +79,7 @@ export default function BookingForm({ dispatch, availableTimes, submitForm }) {
             setDate(e.target.value);
             handleDateReducer();
           }}
-          min="2023-01-15" max="2023-02-28"
+          min="2024-09-15"
           required />
         <select name="time" value={time} onChange={e => setTime(e.target.value)} required>
           <option label="Select time" value="">Select time</option>
